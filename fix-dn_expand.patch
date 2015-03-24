@@ -1,0 +1,19 @@
+*** policyd-weight	2011-09-03 16:21:20.000000000 +0200
+--- policyd-weight.patched	2015-03-03 04:19:05.437063565 +0100
+***************
+*** 3588,3594 ****
+              my    ($id, $bf, $qc, $anc, $nsc, $arc, $qb) = 
+              unpack('n   n    n    n     n     n     a*', $buf);
+  
+!             my ($dn, $offset) = dn_expand(\$qb, 0);
+  
+              if(($id && $anc) && ($id == $oid) && ($query eq $dn))
+              {
+--- 3588,3594 ----
+              my    ($id, $bf, $qc, $anc, $nsc, $arc, $qb) = 
+              unpack('n   n    n    n     n     n     a*', $buf);
+  
+!             my ($dn, $offset) = Net::DNS::Packet::dn_expand(\$qb, 0);
+  
+              if(($id && $anc) && ($id == $oid) && ($query eq $dn))
+              {

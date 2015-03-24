@@ -1,0 +1,8 @@
+post_install() {
+  groupadd -r polw
+  useradd -r -g polw -s /bin/false -c "policyd-weight User" polw
+}
+
+post_remove() {
+  userdel polw
+}
